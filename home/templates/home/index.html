@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Signup|Blogsite</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <h2>BLOGGERS</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href={% url 'home:index' %}> Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href={% url 'home:login' %}>login</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link " href={% url 'home:signup' %}>signup</a>
+
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href={% url 'home:contactus' %}> Contact Us <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <form method="POST" action="/signup/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">fname</label>
+                <input type="text" class="form-control" name="fname" placeholder="Enter first name" required>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">lname</label>
+                <input type="text" class="form-control" name="lname" placeholder="Enter last name" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">email</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">username</label>
+                <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">password</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter username" required>
+            </div>
+
+
+
+            <button type="submit">Submit</button><br><br>
+            <button type="submit"> <a  href={% url 'home:login' %}>Already user</a></button>
+            <button type="submit"> <a  href={% url 'home:login' %}>Login</a></button>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
